@@ -11,15 +11,14 @@ class Solution {
                 wantList.add(s);
             }
         }
+        
         Collections.sort(wantList);
-        
-        int index = discount.length - 10;
-        
-        for (int i = 0; i <= discount.length - 10; i++) {
-            String[] discountArr = Arrays.copyOfRange(discount, i, discount.length - index);
-            index--;
 
-            List<String> discountList = Arrays.asList(discountArr);
+        for (int i = 0; i <= discount.length - 10; i++) {
+            List<String> discountList = new ArrayList<>();
+            for (int j = i; j < i + 10; j++) {
+                discountList.add(discount[j]);
+            }
             Collections.sort(discountList);
 
             if (wantList.equals(discountList)) {
